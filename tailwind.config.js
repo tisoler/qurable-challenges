@@ -1,5 +1,17 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  purge: {
+    // These options are passed through directly to PurgeCSS
+    options: {
+      // List your classes here, or you can even use RegExp
+      safelist: ['bg-gray-500',],
+    },
+  },
+  content: [
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',

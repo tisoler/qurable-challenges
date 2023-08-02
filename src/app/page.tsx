@@ -2,22 +2,27 @@
 
 import { useState } from 'react'
 import ExerciseTwo from './exercise2/page'
+import ExerciseThree from './exercise3/page'
 import ExerciseFour from './exercise4/page'
 
 export default function Home() {
   const [showExercise, setShowExercise] = useState<number | null>()
 
+  const handleGoBack = () => setShowExercise(null)
+
   const getComponent = () => {
     switch (showExercise) {
       case 2:
-        return <ExerciseTwo onGoBack={() => setShowExercise(null)} />
+        return <ExerciseTwo onGoBack={handleGoBack} />
+      case 3:
+        return <ExerciseThree onGoBack={handleGoBack} />
       case 4:
-        return <ExerciseFour onGoBack={() => setShowExercise(null)} />
+        return <ExerciseFour onGoBack={handleGoBack} />
       default:
         return (
           <>
             <span>No exercise selected</span>
-            <button className={buttonClass} onClick={() => setShowExercise(null)}>{'< Back'}</button>
+            <button className={buttonClass} onClick={handleGoBack}>{'< Back'}</button>
           </>
         )
     }

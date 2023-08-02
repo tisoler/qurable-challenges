@@ -7,15 +7,16 @@ interface ExerciseTwoProps {
   onGoBack: () => void
 }
 
+const lion = new Lion()
+const elephant = new Elephant()
+const monkey = new Monkey()
+const zoo = new Zoo()
+
 const ExerciseFour = ({ onGoBack }: ExerciseTwoProps) => {
   const [firstAnimal, setFirstAnimal] = useState<Animal>()
   const [secondAnimal, setSecondAnimal] = useState<Animal>()
   const [meet, setMeet] = useState<string>()
   const [fillFirstAnimal, setFillFirstAnimal] = useState<boolean>(true)
-  const lion = new Lion()
-  const elephant = new Elephant()
-  const monkey = new Monkey()
-  const zoo = new Zoo()
 
   const handleSetAnimal = (animal: Animal) => {
     if (fillFirstAnimal) {
@@ -62,7 +63,7 @@ const ExerciseFour = ({ onGoBack }: ExerciseTwoProps) => {
         </div>
       </div>
       <button
-        className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded w-4/12 h-20 m-2"
+        className={`bg-${!firstAnimal || !secondAnimal ? 'gray' : 'green'}-500 ${firstAnimal && secondAnimal && 'hover:bg-green-700'} text-white font-bold py-2 px-4 rounded w-4/12 h-20 m-2`}
         disabled={!firstAnimal || !secondAnimal}
         onClick={handleMeet}
       >
