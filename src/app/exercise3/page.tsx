@@ -82,62 +82,62 @@ const ExerciseThree = ({ onGoBack }: ExerciseTwoProps) => {
       <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
         Enter a list of meetings with start and end time (e.g. (9,10) - (11,12.5))
       </label>
-      <div className="w-8/12 md:flex md:items-center justify-center">
+      <div className="w-full sm:w-11/12 md:w-8/12 flex items-center justify-center">
         {'('}
         <input
           type="number"
-          className="shadow appearance-none border rounded w-1/12 py-2 px-3 m-1 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          className="shadow appearance-none border rounded w-2/12 sm:w-1/12 py-2 px-3 m-1 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           onChange={handleChangeStart}
           value={meeting?.start || ''}
         />
         {','}
         <input
           type="number"
-          className="shadow appearance-none border rounded w-1/12 py-2 px-3 m-1 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          className="shadow appearance-none border rounded w-2/12 sm:w-1/12 py-2 px-3 m-1 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           onChange={handleChangeEnd}
           value={meeting?.end || ''}
         />
         {')'}
         <button
-          className={`bg-${!meeting?.start || !meeting.end ? 'gray' : 'green'}-500 ${meeting?.start && meeting.end && 'hover:bg-green-700'} text-white font-bold ml-4 py-2 px-4 rounded w-2/12 h-20 m-2`}
+          className={`bg-${!meeting?.start || !meeting.end ? 'gray' : 'green'}-500 ${meeting?.start && meeting.end && 'hover:bg-green-700'} text-white font-bold ml-4 py-2 px-4 rounded w-3/12 sm:w-2/12 h-20 m-2`}
           disabled={!meeting?.start || !meeting.end}
           onClick={handleAddTuple}
         >
           Add tuple
         </button>
         <button
-          className={`bg-${!meetingArray.length ? 'gray' : 'green'}-500 ${meetingArray?.length && 'hover:bg-green-700'} text-white font-bold ml-4 py-2 px-4 rounded w-2/12 h-20 m-2`}
+          className={`bg-${!meetingArray.length ? 'gray' : 'green'}-500 ${meetingArray?.length && 'hover:bg-green-700'} text-white font-bold ml-4 py-2 px-4 rounded w-3/12 sm:w-2/12 h-20 m-2`}
           disabled={!meetingArray?.length}
           onClick={() => setMeetingArray([])}
         >
           Clean
         </button>
       </div>
-      <div className="w-8/12 md:flex md:items-center justify-center">
-        <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mr-2">Meetings:</label>
+      <div className="w-full sm:w-11/12 md:w-8/12 flex items-center justify-center">
+        <label className="block uppercase w-2/12 tracking-wide text-gray-700 text-xs font-bold mr-2">Meetings:</label>
         <input
           value={meetingArray?.map((t: Tuple) => (`(${t})`)).join(',') || ''}
           disabled
-          className="shadow appearance-none border rounded w-7/12 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         />
       </div>
       <button
-        className={`bg-${!meetingArray?.length ? 'gray' : 'green'}-500 ${meetingArray?.length && 'hover:bg-green-700'} text-white font-bold py-2 px-4 rounded w-4/12 h-20 m-2`}
+        className={`bg-${!meetingArray?.length ? 'gray' : 'green'}-500 ${meetingArray?.length && 'hover:bg-green-700'} text-white font-bold py-2 px-4 rounded w-full sm:w-11/12 md:w-8/12 h-20 m-2`}
         disabled={!meetingArray?.length}
         onClick={handleScheduleMeetings}
       >
         Schedule meetings!
       </button>
-      <div className="w-8/12 md:flex md:items-center justify-center">
-        <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mr-2">Best schedule:</label>
+      <div className="w-full sm:w-11/12 md:w-8/12 flex items-center justify-center">
+        <label className="block uppercase tracking-wide w-2/12 text-gray-700 text-xs font-bold mr-2">Best schedule:</label>
         <input
           value={bestSchedule?.sort((a: Tuple, b: Tuple) => a[0] - b[0]).map((t: Tuple) => (`(${t})`)).join(',') || ''}
           disabled
-          className="shadow appearance-none border rounded w-7/12 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         />
       </div>
       <button
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-4/12 h-20 m-2"
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full sm:w-11/12 md:w-8/12 h-20 m-2"
         onClick={onGoBack}
       >
         {'< Back'}

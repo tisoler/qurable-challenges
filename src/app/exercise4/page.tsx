@@ -34,27 +34,27 @@ const ExerciseFour = ({ onGoBack }: ExerciseTwoProps) => {
 
   return (
     <>
-      <div className="w-4/12 md:flex md:items-center justify-center">
+      <div className="w-full sm:w-11/12 md:w-8/12 flex items-center justify-center">
         <button
-          className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded w-4/12 h-20 m-2 text-5xl"
+          className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded w-3/12 lg:w-2/12 h-20 m-2 text-5xl"
           onClick={() => handleSetAnimal(lion)}
         >
             {lion.getIcon()}
         </button>
         <button
-          className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded w-4/12 h-20 m-2 text-5xl"
+          className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded w-3/12 lg:w-2/12 h-20 m-2 text-5xl"
           onClick={() => handleSetAnimal(elephant)}
         >
             {elephant.getIcon()}
         </button>
         <button
-          className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded w-4/12 h-20 m-2 text-5xl"
+          className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded w-3/12 lg:w-2/12 h-20 m-2 text-5xl"
           onClick={() => handleSetAnimal(monkey)}
         >
           {monkey.getIcon()}
         </button>
       </div>
-      <div className="w-4/12 md:flex md:items-center justify-center">
+      <div className="w-full sm:w-11/12 md:w-8/12 flex items-center justify-center">
         <div className="text-5xl border-solid border-gray-500 border-2 m-2 p-6">
           {firstAnimal?.getIcon()}
         </div>
@@ -63,7 +63,7 @@ const ExerciseFour = ({ onGoBack }: ExerciseTwoProps) => {
         </div>
       </div>
       <button
-        className={`bg-${!firstAnimal || !secondAnimal ? 'gray' : 'green'}-500 ${firstAnimal && secondAnimal && 'hover:bg-green-700'} text-white font-bold py-2 px-4 rounded w-4/12 h-20 m-2`}
+        className={`bg-${!firstAnimal || !secondAnimal ? 'gray' : 'green'}-500 ${firstAnimal && secondAnimal && 'hover:bg-green-700'} text-white font-bold py-2 px-4 rounded w-full sm:w-11/12 md:w-8/12 h-20 m-2`}
         disabled={!firstAnimal || !secondAnimal}
         onClick={handleMeet}
       >
@@ -72,10 +72,10 @@ const ExerciseFour = ({ onGoBack }: ExerciseTwoProps) => {
       <input
         value={meet || ''}
         disabled
-        className="shadow appearance-none border rounded w-4/12 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        className="shadow appearance-none border rounded w-full sm:w-11/12 md:w-8/12 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
       />
       <button
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-4/12 h-20 m-2"
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full sm:w-11/12 md:w-8/12 h-20 m-2"
         onClick={onGoBack}
       >
         {'< Back'}
