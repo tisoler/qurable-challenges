@@ -1,4 +1,6 @@
-import { Children, ReactNode, createContext, useContext, useState } from "react"
+'use client'
+
+import { ReactNode, createContext, useContext, useState } from "react"
 import ConfirmationDialog from "../components/confirmationDialog"
 
 const DialogContext = createContext({

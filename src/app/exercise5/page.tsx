@@ -1,14 +1,16 @@
-import Lobby from "./components/lobby"
+import AppContainer from "../container"
+import Lobby from "./components/event/lobby"
 import DialogProvider from "./context/dialogContext"
+import GlobalProvider from "./context/globalContext"
 
-interface ExerciseTwoProps {
-  onGoBack: () => void
-}
-
-const ExerciseFive = ({ onGoBack }: ExerciseTwoProps) => (
-  <DialogProvider>
-    <Lobby onGoBack={onGoBack} />
-  </DialogProvider>
+const ExerciseFive = () => (
+  <GlobalProvider>
+    <DialogProvider>
+      <AppContainer>
+        <Lobby />
+      </AppContainer>
+    </DialogProvider>
+  </GlobalProvider>
 )
 
 export default ExerciseFive

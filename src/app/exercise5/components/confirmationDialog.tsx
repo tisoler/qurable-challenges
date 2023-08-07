@@ -31,7 +31,7 @@ const ConfirmationDialog = ({ open, handleConfirm, handleCancel, title, text }: 
       </DialogContent>
       <DialogActions>
         <Button onClick={handleCancel}>No</Button>
-        <Button onClick={handleConfirm} autoFocus>Sí</Button>
+        <Button onClick={handleConfirm} autoFocus>Yes</Button>
       </DialogActions>
     </Dialog>
   </div>

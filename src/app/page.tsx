@@ -1,10 +1,12 @@
 'use client'
 
 import { ReactNode, useState } from 'react'
+import { useRouter } from 'next/navigation'
 import ExerciseTwo from './exercise2/page'
 import ExerciseThree from './exercise3/page'
 import ExerciseFour from './exercise4/page'
 import ExerciseFive from './exercise5/page'
+import AppContainer from './container'
 
 const buttonClass = 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full sm:w-11/12 md:w-8/12 h-20 m-2'
 
@@ -19,19 +21,18 @@ const MenuButton = ({ onClick, children }: { onClick: () => void, children: Reac
 
 export default function Home() {
   const [showExercise, setShowExercise] = useState<number | null>()
+  const router = useRouter()
 
   const handleGoBack = () => setShowExercise(null)
 
-  const getComponent = () => {
+  if (showExercise) {
     switch (showExercise) {
       case 2:
-        return <ExerciseTwo onGoBack={handleGoBack} />
+        return <AppContainer><ExerciseTwo onGoBack={handleGoBack} /></AppContainer>
       case 3:
-        return <ExerciseThree onGoBack={handleGoBack} />
+        return <AppContainer><ExerciseThree onGoBack={handleGoBack} /></AppContainer>
       case 4:
-        return <ExerciseFour onGoBack={handleGoBack} />
-      case 5:
-        return <ExerciseFive onGoBack={handleGoBack} />
+        return <AppContainer><ExerciseFour onGoBack={handleGoBack} /></AppContainer>
       default:
         return (
           <>
@@ -43,30 +44,22 @@ export default function Home() {
   }
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-3 sm:p-12">
-      {
-        !showExercise ? (
-          <>
-            <MenuButton onClick={() => setShowExercise(1)}>
-              Exercise 1
-            </MenuButton>
-            <MenuButton onClick={() => setShowExercise(2)}>
-              Exercise 2
-            </MenuButton>
-            <MenuButton onClick={() => setShowExercise(3)}>
-              Exercise 3
-            </MenuButton>
-            <MenuButton onClick={() => setShowExercise(4)}>
-              Exercise 4
-            </MenuButton>
-            <MenuButton onClick={() => setShowExercise(5)}>
-              Exercise 5
-            </MenuButton>
-          </>
-        ) : (
-          getComponent()
-        )
-      }
-    </main>
+    <AppContainer>
+      <MenuButton onClick={() => setShowExercise(1)}>
+        Exercise 1
+      </MenuButton>
+      <MenuButton onClick={() => setShowExercise(2)}>
+        Exercise 2
+      </MenuButton>
+      <MenuButton onClick={() => setShowExercise(3)}>
+        Exercise 3
+      </MenuButton>
+      <MenuButton onClick={() => setShowExercise(4)}>
+        Exercise 4
+      </MenuButton>
+      <MenuButton onClick={() => router.push('/exercise5')}>
+        Exercise 5
+      </MenuButton>
+    </AppContainer>
   )
 }
