@@ -21,7 +21,7 @@ const Lobby = () => {
   const [openLogin, setOpeLogin] = useState<boolean>(false)
 
   const { globalState, dispatch, canWriteEvent, removeToken } = useGlobalContext()
-  const { events, isLoading, isError, userId, token } = globalState
+  const { events, isLoading, isError, userId, username, token } = globalState
   const { openDialog, closeDialog } = useDialogContext()
 
   const router = useRouter()
@@ -128,9 +128,14 @@ const Lobby = () => {
 
   return (
     <>
+      {userId && username && (
+        <div className="absolute right-5 top-5 flex items-center justify-center text-blue-500 w-20">
+          Hi {username}!
+        </div>
+      )}
       <button
         onClick={handleLoginLogout}
-        className="absolute right-5 top-5 flex items-center justify-center bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded-full w-16 h-16 m-2"
+        className={`absolute right-5 top-${username ? '10' : '5'} flex items-center justify-center bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded-full w-16 h-16 m-2`}
       >
         {userId ? 'logout' : 'login'}
       </button>

@@ -2,10 +2,10 @@
 
 import { ReactNode, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import ExerciseTwo from './exercise2/page'
-import ExerciseThree from './exercise3/page'
-import ExerciseFour from './exercise4/page'
-import ExerciseFive from './exercise5/page'
+import ExerciseOne from './exercise1'
+import ExerciseTwo from './exercise2'
+import ExerciseThree from './exercise3'
+import ExerciseFour from './exercise4'
 import AppContainer from './container'
 
 const buttonClass = 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full sm:w-11/12 md:w-8/12 h-20 m-2'
@@ -27,6 +27,8 @@ export default function Home() {
 
   if (showExercise) {
     switch (showExercise) {
+      case 1:
+        return <AppContainer><ExerciseOne onGoBack={handleGoBack} /></AppContainer>
       case 2:
         return <AppContainer><ExerciseTwo onGoBack={handleGoBack} /></AppContainer>
       case 3:

@@ -55,11 +55,12 @@ export function globalReducer(globalState: GlobalState, action: GlobalAction) {
       }
     }
     case ACTIONS.UPDATE_USER: {
-      const { userId = null, scope = [], token = '' } = action
+      const { userId = null, username = null, scope = [], token = '' } = action
 
       return {
         ...globalState,
         userId,
+        username,
         scope,
         token,
       }

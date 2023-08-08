@@ -13,6 +13,7 @@ const ssEvents = new EventSource(STREAM_URL, { withCredentials: true })
 
 export interface GlobalState {
   userId: number | null,
+  username: string | null,
   events: Event[],
   isLoading: boolean,
   isError: boolean,
@@ -23,6 +24,7 @@ export interface GlobalState {
 export interface GlobalAction {
   type: string,
   userId?: number | null,
+  username?: string | null,
   events?: Event[],
   event?: Event,
   eventId?: number,
@@ -32,6 +34,7 @@ export interface GlobalAction {
 
 const INITIAL_STATE: GlobalState = {
   userId: null,
+  username: null,
   events: [],
   isLoading: true,
   isError: false,
@@ -61,6 +64,7 @@ const GlobalProvider = ({ children }: { children: ReactNode }) => {
     dispatch({
       type: ACTIONS.UPDATE_USER,
       userId: userData?.userId,
+      username: userData?.username,
       scope: userData.scope,
       token,
     })
@@ -74,6 +78,7 @@ const GlobalProvider = ({ children }: { children: ReactNode }) => {
     dispatch({
       type: ACTIONS.UPDATE_USER,
       userId: userData?.userId,
+      username: userData?.username,
       scope: userData.scope,
       token,
     })
@@ -87,6 +92,7 @@ const GlobalProvider = ({ children }: { children: ReactNode }) => {
     dispatch({
       type: ACTIONS.UPDATE_USER,
       userId: null,
+      username: null,
       scope: [],
       token: '',
     })
@@ -126,7 +132,6 @@ const GlobalProvider = ({ children }: { children: ReactNode }) => {
       const data = JSON.parse(res?.data)
 
       if (userId !== data?.userId) {
-        console.log(88, data?.userId)
         getUpcomingEventsData()
       }
     })
@@ -136,7 +141,6 @@ const GlobalProvider = ({ children }: { children: ReactNode }) => {
       const data = JSON.parse(res?.data)
 
       if (userId !== data?.userId) {
-        console.log(88, data?.userId)
         getUpcomingEventsData()
       }
     })

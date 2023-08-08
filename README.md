@@ -2,7 +2,13 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+First, install all dependencies:
+
+```bash
+yarn install
+```
+
+Then, run the development server locally:
 
 ```bash
 npm run dev
@@ -14,21 +20,32 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+## Other scripts:
 
-To learn more about Next.js, take a look at the following resources:
+You can run this one to generate the files to be deployed. Files will be placed in the folder .next
+``` bash
+yarn build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+You can run theapp from the built files runnig:
+``` bash
+yarn start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+This project includes EsLint so you can check for lint errors or warnings running:
+``` bash
+yarn lint
+```
 
-## Deploy on Vercel
+## Environment variables:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+You have to include a file called ```.env``` that contains the env variables, they have to start with prefix ```NEXT_PUBLIC```
+You can take the file content from ```.env.example```, the key ```NEXT_PUBLIC_BACKEND_URL``` is required.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Exercise 5 - real-time updates
+
+Regarding to the requirement: Implement some form of real-time updates (e.g., users see new events as soon as they're created without having to refresh the page).
+
+The selected approach is Server-sent events. Since we need to send messages from the server to clients, a unidirectional channel is enough to reach the goal (instead of a web socket for example). Client side needs to be subscribed to the events of uri: NEXT_PUBLIC_BACKEND_URL/stream (src\app\exercise5\context\globalContext.tsx)
