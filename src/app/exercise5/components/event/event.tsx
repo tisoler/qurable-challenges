@@ -45,7 +45,7 @@ const EventComponent = ({ updateEvent = EMPTY_EVENT, onSave, onCancel }: Exercis
 
   const handleChangeName = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e?.target?.value
-    if (!value || !event) return
+    if (value === null || !event) return
     
     setEvent({
       ...event,
@@ -55,7 +55,7 @@ const EventComponent = ({ updateEvent = EMPTY_EVENT, onSave, onCancel }: Exercis
 
   const handleChangeDescription = (e: ChangeEvent<HTMLTextAreaElement>) => {
     const value = e?.target?.value
-    if (!value || !event) return
+    if (value === null || !event) return
     
     setEvent({
       ...event,

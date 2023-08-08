@@ -49,3 +49,15 @@ You can take the file content from ```.env.example```, the key ```NEXT_PUBLIC_BA
 Regarding to the requirement: Implement some form of real-time updates (e.g., users see new events as soon as they're created without having to refresh the page).
 
 The selected approach is Server-sent events. Since we need to send messages from the server to clients, a unidirectional channel is enough to reach the goal (instead of a web socket for example). Client side needs to be subscribed to the events of uri: NEXT_PUBLIC_BACKEND_URL/stream (src\app\exercise5\context\globalContext.tsx)
+
+## Sandbox
+
+The app is running in https://qurable.tisoler.net.ar/
+
+## Test users - exercise 5
+
+In order to test the app with authenticated users some credentials are provided:
+```admin/12345```
+```user/12121```
+
+Exercise url: https://qurable.tisoler.net.ar/exercise5
